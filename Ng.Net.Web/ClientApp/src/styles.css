@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+/* a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+} */
+
+.middle {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.form-box {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.form-box-radius {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border-radius: 25px;
+}
+
+a {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.slider-text {
+  margin-left: 15px;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+.topbar-text {
+  font-size: 15px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: cornflowerblue;
+  letter-spacing: 3px;
+}
+
+.table-header {
+  border: solid aqua;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.info-page {
+  height: 80%;
+  width: 50%;
+  border-radius: 20px;
+  padding: 40px;
+}

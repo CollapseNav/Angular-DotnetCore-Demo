@@ -1,0 +1,39 @@
+<div class="middle">
+  <form
+    (ngSubmit)="onSubmit()"
+    class="form-box-radius logreg-body"
+    [formGroup]="signupForm"
+  >
+    <div>
+      <h1 class="weight-h1" style="margin-top: 20px;">
+        SignUp
+      </h1>
+    </div>
+    <div>
+      <input
+        type="text"
+        class="input-radius"
+        formControlName="userAccount"
+        placeholder="UserAccount"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        class="input-radius"
+        formControlName="password"
+        placeholder="PassWord"
+      />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary btn-submit">SignUp</button>
+    </div>
+    <div style="text-align: center;">
+      <p style="margin-top: 40px">Have a account ? You can</p>
+      <p>
+        Click here to
+        <a href="signin" id="login" style="color: #007bff;">Log in</a>
+      </p>
+    </div>
+  </form>
+</div>
