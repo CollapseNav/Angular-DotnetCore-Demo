@@ -13,7 +13,8 @@
       <input
         type="text"
         class="input-radius"
-        id="userAccount"
+        [(ngModel)]="model.userAccount"
+        name="userAccount"
         placeholder="UserAccount"
       />
     </div>
@@ -21,7 +22,8 @@
       <input
         type="password"
         class="input-radius"
-        id="password"
+        [(ngModel)]="model.password"
+        name="password"
         placeholder="PassWord"
       />
     </div>
