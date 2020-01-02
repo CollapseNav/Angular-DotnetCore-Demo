@@ -2,12 +2,14 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 21:09:49
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2019-12-30 20:17:18
+ * @LastEditTime : 2020-01-01 00:43:53
  * @Description:
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { SignUpComponent } from './SignUp/SignUp.component';
 import { SignInUpRouting } from './sign-routing.module';
@@ -18,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     HttpClientModule,
     FormsModule,
     SignInUpRouting,
@@ -27,4 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     SignInComponent,
   ]
 })
-export class SignInUpModule { }
+export class SignInUpModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+  }
+}
