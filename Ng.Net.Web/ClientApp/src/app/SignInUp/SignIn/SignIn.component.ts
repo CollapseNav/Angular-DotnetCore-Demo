@@ -2,11 +2,10 @@
  * @Author: CollapseNav
  * @Date: 2019-12-29 19:32:07
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-01 00:31:27
+ * @LastEditTime : 2020-01-02 16:43:11
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { SignService } from '../sign.service';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
