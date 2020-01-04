@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder}\\Ng.Net.Web/TestData.db",
+            "dialect": "SQLite",
+            "name": "TestSqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

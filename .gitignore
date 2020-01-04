@@ -348,3 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Ng.Net.Web/Migrations/20191230143557_create.cs
+Ng.Net.Web/Migrations/20191230143557_create.Designer.cs
+Ng.Net.Web/Migrations/20191231074449_create1.cs
+Ng.Net.Web/Migrations/20191231074449_create1.Designer.cs
+Ng.Net.Web/Migrations/NgTestContextModelSnapshot.cs
+Ng.Net.Web/TestData.db
