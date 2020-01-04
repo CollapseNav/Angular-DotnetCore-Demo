@@ -1,0 +1,59 @@
+<!--
+ * @Author: CollapseNav
+ * @Date: 2020-01-03 00:16:41
+ * @LastEditors  : CollapseNav
+ * @LastEditTime : 2020-01-03 01:32:01
+ * @Description:
+ -->
+
+<p></p>
+<div class="card">
+  <div class="card-header">
+    Count+1
+  </div>
+  <div class="card-body">
+    <label>
+      <h1>{{ forbtn1 }}</h1>
+    </label>
+    <p>
+      <button class="btn btn-primary" (click)="onBtn1()">Count+1</button>
+    </p>
+  </div>
+</div>
+<p></p>
+<div class="card">
+  <div class="card-header">
+    Counter+count
+  </div>
+  <div class="card-body">
+    <label>
+      <h1>{{ forbtn2 }}</h1>
+    </label>
+    <p>
+      <button class="btn btn-primary" (click)="onBtn2()">
+        Count+{{ forbtn2 }}
+      </button>
+    </p>
+  </div>
+</div>
+<p></p>
+<div class="card">
+  <div class="card-header">
+    Counter<span *ngIf="inputvalue >= '0' || !inputvalue">+</span>{{ inputvalue ? inputvalue : (0 | number) }}
+  </div>
+  <div class="card-body">
+    <input class="form-control col-sm-2" type="text" [(ngModel)]="inputvalue" />
+    <p>
+      <label>
+        <h1>{{ forbtn3 }}</h1>
+      </label>
+    </p>
+
+    <p>
+      <button class="btn btn-primary" (click)="onBtn3()">
+        Count<span *ngIf="inputvalue >= '0' || !inputvalue">+</span>
+        {{ inputvalue ? inputvalue : (0 | number) }}
+      </button>
+    </p>
+  </div>
+</div>
