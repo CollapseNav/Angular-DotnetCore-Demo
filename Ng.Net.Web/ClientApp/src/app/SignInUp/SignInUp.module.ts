@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 21:09:49
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2019-12-30 20:17:18
+ * @LastEditTime : 2020-01-02 16:42:34
  * @Description:
  */
 import { NgModule } from '@angular/core';
@@ -27,4 +27,5 @@ import { HttpClientModule } from '@angular/common/http';
     SignInComponent,
   ]
 })
-export class SignInUpModule { }
+export class SignInUpModule {
+}

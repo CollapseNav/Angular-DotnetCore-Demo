@@ -7,19 +7,19 @@
 }
 
 .btn-submit {
-  width: 100px;
-  height: 36px;
+  width: 90px;
   margin: 0 auto;
   font-size: 18px;
+  font-weight: 500;
   text-align: center;
   border: 0;
   border-radius: 20px;
   display: block;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .btn-submit:hover {
-  width: 150px;
+  width: 130px;
   transition: 0.2s;
 }
 
