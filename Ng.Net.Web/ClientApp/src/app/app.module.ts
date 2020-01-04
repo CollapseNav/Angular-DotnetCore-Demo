@@ -2,14 +2,14 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 18:31:29
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-02 18:43:37
+ * @LastEditTime : 2020-01-04 19:20:08
  * @Description:
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgbModule, NgbPagination, NgbNavbar, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';

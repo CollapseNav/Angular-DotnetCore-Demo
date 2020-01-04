@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2020-01-02 15:23:27
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-03 22:55:18
+ * @LastEditTime : 2020-01-04 19:16:34
  * @Description:
  */
 import { NgModule } from '@angular/core';
