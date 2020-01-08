@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2020-01-02 15:23:27
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-04 19:16:34
+ * @LastEditTime : 2020-01-08 23:50:22
  * @Description:
  */
 import { NgModule } from '@angular/core';
@@ -13,20 +13,25 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { SiderComponent } from './sider/sider.component';
 import { CounterComponent } from './counter/counter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './edituser/edituser.component';
 import { TableComponent } from './table/table.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ExampleGuard } from './example.guard';
+import { TokenInterceptor } from '../SignInUp/token.interceptor';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule,
     NgbDropdownModule,
     HttpClientModule,
     RouterModule.forChild([
       {
-        path: 'example', component: ExampleComponent, children: [
+        path: 'example', component: ExampleComponent,
+        canActivate: [ExampleGuard],
+        children: [
           { path: 'counter', component: CounterComponent },
           { path: 'edituser', component: EdituserComponent },
           { path: 'table', component: TableComponent },
@@ -42,6 +47,13 @@ import { HttpClientModule } from '@angular/common/http';
     CounterComponent,
     EdituserComponent,
     TableComponent,
+  ],
+  providers: [
+    ExampleGuard, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
   ]
 })
 export class ExampleModule { }

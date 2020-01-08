@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 20:02:06
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-03 16:44:41
+ * @LastEditTime : 2020-01-09 00:05:04
  * @Description: 
  */
 using System;
@@ -25,6 +25,8 @@ namespace Ng.Net.Application
 
 
         public UserInfo GetUserInfo(string userid) => _rep.FindByID(userid);
+
+        public UserInfo GetUserInfoByUserAccount(string userAccount) => _rep.FindSingle(model => model.UserAccount == userAccount);
 
         /// <summary>
         /// this func should not be here
@@ -65,7 +67,7 @@ namespace Ng.Net.Application
         {
             try
             {
-                _rep.Update(w => w.UserAccount == entity.UserAccount, u => new UserInfo { UserName = entity.UserName, PhoneNumber = entity.PhoneNumber, Gender = entity.Gender });
+                _rep.Update(w => w.UserAccount == entity.UserAccount, u => new UserInfo { UserName = entity.UserName, PhoneNumber = entity.PhoneNumber });
             }
             catch
             {

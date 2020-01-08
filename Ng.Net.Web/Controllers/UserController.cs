@@ -4,9 +4,12 @@ using Ng.Net.Application.Interface;
 using System.Linq;
 using Ng.Net.Repository.Domain;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using Ng.Net.Application.ReceiveData;
 
 namespace Ng.Net.Web.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
@@ -16,9 +19,9 @@ namespace Ng.Net.Web.Controllers
         public UserController(IUserApplication app) => _app = app;
 
         [HttpGet, Route("[action]")]
-        public UserInfo GetUser(string userid)
+        public UserInfo GetUser(string userAccount)
         {
-            return _app.GetUserInfo(userid);
+            return _app.GetUserInfoByUserAccount(userAccount);
         }
 
         [HttpGet, Route("[action]")]
@@ -32,5 +35,8 @@ namespace Ng.Net.Web.Controllers
         {
             return "";
         }
+
+        [HttpPost, Route("[action]")]
+        public bool EditUser(EditData data) => _app.UpdateUserInfo(data.GetUserInfo());
     }
 }

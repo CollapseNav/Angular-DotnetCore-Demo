@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 19:49:47
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-03 16:42:47
+ * @LastEditTime : 2020-01-08 20:19:42
  * @Description: 
  */
 using System;
@@ -25,11 +25,13 @@ namespace Ng.Net.Application.Interface
 
         bool SignIn(UserInfo entity);
 
-        UserInfo GetUserInfo(string userid);
-
         bool UpdateUserInfo(UserInfo entity);
 
         IQueryable<UserInfo> GetAllUser();
+
+        UserInfo GetUserInfo(string userid);
+
+        UserInfo GetUserInfoByUserAccount(string userAccount);
 
     }
 }

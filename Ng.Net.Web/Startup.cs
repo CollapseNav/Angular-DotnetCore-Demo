@@ -2,9 +2,13 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 18:31:28
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2019-12-31 23:32:20
+ * @LastEditTime : 2020-01-08 23:10:04
  * @Description: 
  */
+using System;
+using System.IO;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -12,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Ng.Net.Application;
 using Ng.Net.Application.Interface;
 using Ng.Net.Repository;
@@ -31,6 +36,26 @@ namespace Ng.Net.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = "DotnetTest",
+                    ValidateAudience = true,
+                    ValidAudience = "AngualrApp",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("It's a .net core spa test."))
+                };
+            });
+
             services.AddCors(options =>
             {
                 options.AddPolicy("angular",
@@ -68,6 +93,8 @@ namespace Ng.Net.Web
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
+
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -76,7 +103,10 @@ namespace Ng.Net.Web
 
             app.UseRouting();
 
+
             app.UseCors("angular");
+
+            app.UseAuthorization();
 
             // app.UseHttpsRedirection();
 

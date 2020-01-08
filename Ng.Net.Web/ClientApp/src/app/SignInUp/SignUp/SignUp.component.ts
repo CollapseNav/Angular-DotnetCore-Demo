@@ -2,11 +2,11 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 21:14:16
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2019-12-30 20:52:48
+ * @LastEditTime : 2020-01-08 20:46:38
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { SignService } from '../sign.service';
 
 @Component({
@@ -16,18 +16,19 @@ import { SignService } from '../sign.service';
 })
 export class SignUpComponent implements OnInit {
 
-  signupForm = new FormGroup({
-    userAccount: new FormControl(''),
-    password: new FormControl(''),
-  });
+  signupForm: FormGroup;
 
   onSubmit() {
     this.signService.signUp(this.signupForm.value).subscribe(result => {
       console.log(result);
     });
   }
-  constructor(private signService: SignService) { }
+  constructor(private signService: SignService, private formbuild: FormBuilder) { }
 
   ngOnInit() {
+    this.signupForm = this.formbuild.group({
+      userAccount: [''],
+      password: [''],
+    });
   }
 }

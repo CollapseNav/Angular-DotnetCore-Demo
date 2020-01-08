@@ -2,12 +2,13 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 01:32:36
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-03 20:25:31
+ * @LastEditTime : 2020-01-08 22:03:44
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { GetuserService } from '../getuser.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { UserService } from '../user.service';
+import { UserInfo } from '../UserInfo';
 
 @Component({
   selector: 'app-edituser',
@@ -15,19 +16,31 @@ import { GetuserService } from '../getuser.service';
   styleUrls: ['./edituser.component.css']
 })
 export class EdituserComponent implements OnInit {
-  editform = new FormGroup({
-    id: new FormControl(''),
-    userAccount: new FormControl(''),
-    userName: new FormControl(''),
-    phoneNumber: new FormControl(''),
-    createDate: new FormControl(''),
-  });
-  constructor(private user: GetuserService) { }
+  editform: FormGroup;
+  constructor(private userService: UserService, private formbuilder: FormBuilder) {
+  }
 
-  ngOnInit() {
-    this.user.getUserInfos().subscribe(user => {
-      console.log(user);
+  onSubmit() {
+    this.userService.editUserInfo(this.editform.value).subscribe(result => {
+      console.log(result);
     });
   }
 
+  ngOnInit() {
+    this.editform = this.formbuilder.group({
+      userAccount: [{ value: '' }],
+      userName: [''],
+      phoneNumber: [''],
+      createDate: [{ value: '', disabled: true }],
+    });
+    this.userService.getUserInfo(localStorage.getItem('userName')).subscribe(user => {
+      this.editform.patchValue({
+        userAccount: user.userAccount,
+        userName: user.userName,
+        phoneNumber: user.phoneNumber,
+        createDate: user.createDate
+      });
+    });
+
+  }
 }

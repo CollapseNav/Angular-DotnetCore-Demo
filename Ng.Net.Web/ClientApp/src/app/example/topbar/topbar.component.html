@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2020-01-02 15:30:40
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-04 19:55:32
+ * @LastEditTime : 2020-01-08 20:15:39
  * @Description:
 -->
 <nav
@@ -31,10 +31,12 @@
     <ul class="navbar-nav my-lg-0">
       <li class="nav-item active" ngbDropdown>
         <div ngbDropdown display="dynamic" class="d-inline-block">
-          <a class="nav-link" id="dp1" ngbDropdownToggle>User</a>
+          <a class="nav-link" id="dp1" ngbDropdownToggle>{{ userAccount }}</a>
           <div aria-labelledby="dp1" class="dropdown-menu" ngbDropdownMenu>
             <a routerLink="/example/edituser" ngbDropdownItem>Edit UserInfo</a>
-            <a routerLink="/" ngbDropdownItem>Sign Out</a>
+            <a routerLink="/index" (click)="onSignOut()" ngbDropdownItem
+              >Sign Out</a
+            >
           </div>
         </div>
       </li>
