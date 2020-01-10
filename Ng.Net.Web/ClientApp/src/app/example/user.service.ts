@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 16:32:38
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 23:53:15
+ * @LastEditTime : 2020-01-10 18:53:29
  * @Description:
  */
 import { Injectable, Inject } from '@angular/core';
@@ -34,6 +34,12 @@ export class UserService {
   editUserInfo(user: UserInfo) {
     console.log(user);
     return this.http.post(this.baseUrl + exampleapi.EditUser, user).pipe(
+      retry(2),
+    );
+  }
+
+  deleteUserInfo(userAccount: string) {
+    return this.http.get(this.baseUrl + exampleapi.DeleteUser, { params: { userAccount: userAccount } }).pipe(
       retry(2),
     );
   }

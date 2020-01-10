@@ -30,13 +30,14 @@ namespace Ng.Net.Web.Controllers
             return _app.GetAllUser();
         }
 
-        [HttpGet, Route("[action]")]
-        public string GetUserName()
-        {
-            return "";
-        }
-
         [HttpPost, Route("[action]")]
         public bool EditUser(EditData data) => _app.UpdateUserInfo(data.GetUserInfo());
+
+        [HttpGet, Route("[action]")]
+        public bool DeleteUser(string userAccount)
+        {
+            return _app.DeleteUser(new UserInfo { UserAccount = userAccount });
+        }
+
     }
 }

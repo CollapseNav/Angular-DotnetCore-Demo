@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 20:02:06
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-09 00:05:04
+ * @LastEditTime : 2020-01-10 21:32:42
  * @Description: 
  */
 using System;
@@ -23,10 +23,22 @@ namespace Ng.Net.Application
             _rep = rep;
         }
 
-
         public UserInfo GetUserInfo(string userid) => _rep.FindByID(userid);
 
         public UserInfo GetUserInfoByUserAccount(string userAccount) => _rep.FindSingle(model => model.UserAccount == userAccount);
+
+        public bool DeleteUser(UserInfo entity)
+        {
+            try
+            {
+                _rep.Delete(model => model.UserAccount == entity.UserAccount);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
 
         /// <summary>
         /// this func should not be here
@@ -35,10 +47,6 @@ namespace Ng.Net.Application
         /// </summary>
         /// <returns></returns>
         public IQueryable<UserInfo> GetAllUser() => _rep.FindAll();
-
-        private UserInfo GetUserInfobyUserAccount(string userAccount) => _rep.FindSingle(model => model.UserAccount == userAccount);
-
-        private UserInfo GetUserInfobyUserName(string userName) => _rep.FindSingle(model => model.UserName == userName);
 
         public bool IsAccountExist(string userAccount) => _rep.IsExist(entity => entity.UserAccount == userAccount);
 

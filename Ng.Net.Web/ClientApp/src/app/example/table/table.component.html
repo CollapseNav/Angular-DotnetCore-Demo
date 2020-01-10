@@ -2,9 +2,35 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 01:33:09
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-03 22:53:08
+ * @LastEditTime : 2020-01-10 21:56:25
  * @Description:
  -->
-<div *ngFor="let item of userArray">
-  {{ item.userAccount }}
-</div>
+<p></p>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">UserAccount</th>
+      <th scope="col">UserName</th>
+      <th scope="col">PhoneNumber</th>
+      <th scope="col">CreateDate</th>
+      <th scope="col">Be</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of userArray; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ item.userAccount }}</td>
+      <td>{{ item.userName }}</td>
+      <td>{{ item.phoneNumber }}</td>
+      <td>{{ item.createDate }}</td>
+      <td>
+        <div *ngIf="item.userAccount != curUser">
+          <button class="btn btn-danger btn-sm" (click)="onDelete(i)">
+            Delete
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

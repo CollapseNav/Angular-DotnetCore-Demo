@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 19:49:47
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 20:19:42
+ * @LastEditTime : 2020-01-10 17:14:04
  * @Description: 
  */
 using System;
@@ -11,6 +11,9 @@ using System.Linq;
 
 namespace Ng.Net.Application.Interface
 {
+    /// <summary>
+    /// All In One!!!!!!!!!!
+    /// </summary>
     public interface IUserApplication
     {
         bool IsAccountExist(string userAccount);
@@ -32,6 +35,8 @@ namespace Ng.Net.Application.Interface
         UserInfo GetUserInfo(string userid);
 
         UserInfo GetUserInfoByUserAccount(string userAccount);
+
+        bool DeleteUser(UserInfo entity);
 
     }
 }

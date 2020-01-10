@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 01:33:09
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 21:45:49
+ * @LastEditTime : 2020-01-10 21:53:32
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
@@ -20,9 +20,21 @@ export class TableComponent implements OnInit {
 
   userArray: Array<UserInfo>;
 
+  curUser: string;
+
   constructor(private user: UserService) { }
 
+  onDelete(id: number) {
+    const account = this.userArray[id].userAccount;
+    this.user.deleteUserInfo(account).subscribe(result => {
+      if (result) {
+        this.userArray.splice(id, 1);
+      }
+    });
+  }
+
   ngOnInit() {
+    this.curUser = localStorage.getItem('userName');
     this.user.getUserInfos().subscribe(arr => {
       this.userArray = arr;
     });
