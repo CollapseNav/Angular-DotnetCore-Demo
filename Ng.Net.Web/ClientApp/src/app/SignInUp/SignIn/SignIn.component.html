@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-29 19:32:07
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-04 19:50:49
+ * @LastEditTime : 2020-01-12 21:30:50
  * @Description:
  -->
 <div class="middle">
@@ -22,6 +22,8 @@
         class="input-radius"
         [(ngModel)]="model.userAccount"
         name="userAccount"
+        required
+        email
         placeholder="UserAccount"
       />
     </div>
@@ -31,16 +33,25 @@
         class="input-radius"
         [(ngModel)]="model.password"
         name="password"
+        required
+        minlength="6"
         placeholder="PassWord"
       />
     </div>
     <div>
-      <button type="submit" class="btn btn-primary btn-submit">SignIn</button>
+      <button
+        type="submit"
+        class="btn btn-primary btn-submit"
+        [disabled]="signinform.invalid"
+      >
+        SignIn
+      </button>
     </div>
     <div style="text-align: center;">
       <p style="margin-top: 40px">If you don't have account.Please</p>
       <p>
-        Click here to <a routerLink="/signup" style="color: #007bff;">Sign Up</a>
+        Click here to
+        <a routerLink="/signup" style="color: #007bff;">Sign Up</a>
       </p>
     </div>
   </form>

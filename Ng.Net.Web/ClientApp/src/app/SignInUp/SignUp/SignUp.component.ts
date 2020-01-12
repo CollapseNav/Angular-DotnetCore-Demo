@@ -2,11 +2,11 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 21:14:16
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-10 21:50:54
+ * @LastEditTime : 2020-01-12 22:11:01
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignService } from '../sign.service';
 import { Router } from '@angular/router';
 
@@ -30,8 +30,8 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = this.formbuild.group({
-      userAccount: [''],
-      password: [''],
+      userAccount: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 }

@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-29 19:32:07
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 17:04:39
+ * @LastEditTime : 2020-01-12 18:38:30
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
@@ -30,6 +30,7 @@ export class SignInComponent implements OnInit {
   onSubmit() {
     this.signService.signIn(this.model).subscribe(result => {
       if (result) {
+        console.log(result);
         this.router.navigate(['example']);
       }
     });

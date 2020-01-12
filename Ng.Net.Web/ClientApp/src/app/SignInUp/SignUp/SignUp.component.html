@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 21:14:16
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 20:49:40
+ * @LastEditTime : 2020-01-12 18:51:53
  * @Description:
  -->
 <div class="middle">
@@ -33,7 +33,13 @@
       />
     </div>
     <div>
-      <button type="submit" class="btn btn-primary btn-submit">SignUp</button>
+      <button
+        type="submit"
+        class="btn btn-primary btn-submit"
+        [disabled]="signupForm.invalid"
+      >
+        SignUp
+      </button>
     </div>
     <div style="text-align: center;">
       <p style="margin-top: 40px">Have a account ? You can</p>
