@@ -2,13 +2,12 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 01:32:36
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-10 21:51:42
+ * @LastEditTime : 2020-01-15 16:40:24
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
-import { UserInfo } from '../UserInfo';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,8 +31,8 @@ export class EdituserComponent implements OnInit {
   ngOnInit() {
     this.editform = this.formbuilder.group({
       userAccount: [{ value: '' }],
-      userName: [''],
-      phoneNumber: [''],
+      userName: ['', [Validators.minLength(4)]],
+      phoneNumber: ['', Validators.minLength(11)],
       createDate: [{ value: '', disabled: true }],
     });
     this.userService.getUserInfo(localStorage.getItem('userName')).subscribe(user => {
@@ -41,7 +40,7 @@ export class EdituserComponent implements OnInit {
         userAccount: user.userAccount,
         userName: user.userName,
         phoneNumber: user.phoneNumber,
-        createDate: user.createDate
+        createDate: user.createDate,
       });
     });
 

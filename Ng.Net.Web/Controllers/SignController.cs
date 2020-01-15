@@ -2,7 +2,7 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 17:56:21
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 19:56:20
+ * @LastEditTime : 2020-01-13 23:06:46
  * @Description: 
  */
 using System;
@@ -27,9 +27,13 @@ namespace Ng.Net.Web.Controllers
         public SignController(IUserApplication app) => _app = app;
 
         [HttpPost, Route("[action]")]
-        public bool SignUp(SignData data)
+        public IActionResult SignUp(SignData data)
         {
-            return _app.SignUp(data.ConvertUserInfo());
+            if (string.IsNullOrEmpty(data.userAccount) && string.IsNullOrEmpty(data.passWord))
+                return BadRequest();
+            if (!_app.SignUp(data.ConvertUserInfo()))
+                return BadRequest();
+            return Ok(true);
         }
 
         [HttpPost, Route("[action]")]
