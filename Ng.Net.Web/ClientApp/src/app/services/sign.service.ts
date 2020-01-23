@@ -2,15 +2,15 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 20:18:00
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-12 22:11:57
+ * @LastEditTime : 2020-01-23 20:19:32
  * @Description:
  */
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { signApi } from './signApi';
+import { HttpClient } from '@angular/common/http';
+import { signApi } from '../SignInUp/signApi';
 import { catchError, retry, tap, mapTo } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
-import { User } from './SignIn/SignIn.component';
+import { User } from '../SignInUp/SignIn/SignIn.component';
 
 @Injectable({
   providedIn: 'root'

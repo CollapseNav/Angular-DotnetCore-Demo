@@ -2,11 +2,9 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 18:31:28
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 23:10:04
+ * @LastEditTime : 2020-01-23 20:50:47
  * @Description: 
  */
-using System;
-using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -59,7 +57,7 @@ namespace Ng.Net.Web
             services.AddCors(options =>
             {
                 options.AddPolicy("angular",
-                builder => builder.WithOrigins("http://localhost:4200", "http://localhost:5000").AllowAnyHeader().AllowAnyMethod().WithExposedHeaders());
+                builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().WithExposedHeaders());
             });
 
             services.AddControllersWithViews();
@@ -102,6 +100,14 @@ namespace Ng.Net.Web
             }
 
             app.UseRouting();
+
+            app.Use((request, next) =>
+            {
+                // Console.WriteLine(request.Request.Headers["Origin"]);
+                // foreach (var item in request.Request.Headers.Keys)
+                //     Console.WriteLine(item + "    " + request.Request.Headers["Origin"]);
+                return next();
+            });
 
 
             app.UseCors("angular");

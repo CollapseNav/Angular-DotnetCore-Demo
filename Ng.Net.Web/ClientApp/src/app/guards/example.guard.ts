@@ -7,7 +7,7 @@
  */
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { SignService } from '../SignInUp/sign.service';
+import { SignService } from '../services/sign.service';
 
 @Injectable({ providedIn: 'root' })
 export class ExampleGuard implements CanActivate {

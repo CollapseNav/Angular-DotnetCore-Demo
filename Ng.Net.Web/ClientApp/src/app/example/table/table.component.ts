@@ -2,11 +2,11 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 01:33:09
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-10 21:53:32
+ * @LastEditTime : 2020-01-23 20:46:00
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 import { UserInfo } from '../UserInfo';
 import { HttpHeaders } from '@angular/common/http';
 

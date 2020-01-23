@@ -16,7 +16,7 @@ namespace Ng.Net.Repository
                 entity.HasIndex(model => model.UserAccount).IsUnique();
             });
 
-            modelBuilder.Entity<UserInfo>().HasData(new UserInfo { Id = Guid.NewGuid().ToString(), UserAccount = "123456@123", PassWord = "123456", CreateDate = DateTime.Now.Date });
+            modelBuilder.Entity<UserInfo>().HasData(new UserInfo { Id = Guid.NewGuid().ToString(), UserAccount = "123456@123", PassWord = "123456", CreateDate = DateTime.Now });
         }
 
         public DbSet<UserInfo> UserInfos { get; set; }

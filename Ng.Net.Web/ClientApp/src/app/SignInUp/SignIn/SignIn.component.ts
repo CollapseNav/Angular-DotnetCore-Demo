@@ -6,7 +6,7 @@
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { SignService } from '../sign.service';
+import { SignService } from '../../services/sign.service';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 

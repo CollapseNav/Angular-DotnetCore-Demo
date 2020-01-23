@@ -2,12 +2,12 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 21:14:16
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-13 23:41:36
+ * @LastEditTime : 2020-01-17 22:33:02
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SignService } from '../sign.service';
+import { SignService } from '../../services/sign.service';
 import { Router } from '@angular/router';
 
 @Component({

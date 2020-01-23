@@ -2,14 +2,13 @@
  * @Author: CollapseNav
  * @Date: 2020-01-08 16:50:42
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-08 23:28:10
+ * @LastEditTime : 2020-01-23 20:18:29
  * @Description:
  */
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse } from '@angular/common/http';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { SignService } from './sign.service';
-import { catchError } from 'rxjs/operators';
+import { SignService } from '../services/sign.service';
 
 @Injectable({ providedIn: 'root' })
 export class TokenInterceptor implements HttpInterceptor {

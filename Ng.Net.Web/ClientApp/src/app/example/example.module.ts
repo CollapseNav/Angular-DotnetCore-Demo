@@ -17,8 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './edituser/edituser.component';
 import { TableComponent } from './table/table.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ExampleGuard } from './example.guard';
-import { TokenInterceptor } from '../SignInUp/token.interceptor';
+import { ExampleGuard } from '../guards/example.guard';
+import { TokenInterceptor } from '../interceptors/token.interceptor';
 
 @NgModule({
   imports: [

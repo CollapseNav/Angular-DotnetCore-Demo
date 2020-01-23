@@ -2,15 +2,14 @@
  * @Author: CollapseNav
  * @Date: 2020-01-03 16:32:38
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-10 18:53:29
+ * @LastEditTime : 2020-01-23 20:19:41
  * @Description:
  */
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserInfo } from './UserInfo';
+import { UserInfo } from '../example/UserInfo';
 import { retry } from 'rxjs/operators';
-import { exampleapi } from './exampleapi';
-import { User } from '../SignInUp/SignIn/SignIn.component';
+import { exampleapi } from '../example/exampleapi';
 
 @Injectable({
   providedIn: 'root'

@@ -2,13 +2,13 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 18:31:29
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-04 19:20:08
+ * @LastEditTime : 2020-01-23 20:20:06
  * @Description:
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';

@@ -6,7 +6,7 @@
  * @Description:
  */
 import { Component, OnInit } from '@angular/core';
-import { SignService } from 'src/app/SignInUp/sign.service';
+import { SignService } from 'src/app/services/sign.service';
 
 @Component({
   selector: 'app-topbar',
