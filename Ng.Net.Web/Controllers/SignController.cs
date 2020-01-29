@@ -2,19 +2,17 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 17:56:21
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-13 23:06:46
+ * @LastEditTime : 2020-01-29 15:39:26
  * @Description: 
  */
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Ng.Net.Application.Interface;
 using Ng.Net.Application.ReceiveData;
-using Ng.Net.Repository.Domain;
 
 namespace Ng.Net.Web.Controllers
 {

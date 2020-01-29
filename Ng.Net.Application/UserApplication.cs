@@ -2,13 +2,11 @@
  * @Author: CollapseNav
  * @Date: 2019-12-30 20:02:06
  * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-10 21:32:42
- * @Description: 
+ * @LastEditTime : 2020-01-29 15:36:46
+ * @Description: it can work (now)
  */
-using System;
 using System.Linq;
 using Ng.Net.Application.Interface;
-using Ng.Net.Repository;
 using Ng.Net.Repository.Domain;
 using Ng.Net.Repository.Interface;
 
@@ -42,10 +40,9 @@ namespace Ng.Net.Application
 
         /// <summary>
         /// this func should not be here
-        /// but i do not want to write a new class or a new interface
+        /// but i don't want to write a new file
         /// :)
         /// </summary>
-        /// <returns></returns>
         public IQueryable<UserInfo> GetAllUser() => _rep.FindAll();
 
         public bool IsAccountExist(string userAccount) => _rep.IsExist(entity => entity.UserAccount == userAccount);

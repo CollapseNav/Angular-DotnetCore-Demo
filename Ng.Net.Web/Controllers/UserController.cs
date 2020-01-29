@@ -1,7 +1,5 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 using Ng.Net.Application.Interface;
-using System.Linq;
 using Ng.Net.Repository.Domain;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
