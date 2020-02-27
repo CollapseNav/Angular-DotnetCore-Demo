@@ -1,8 +1,8 @@
 /*
  * @Author: CollapseNav
  * @Date: 2019-12-27 18:31:28
- * @LastEditors  : CollapseNav
- * @LastEditTime : 2020-01-23 20:50:47
+ * @LastEditors: CollapseNav
+ * @LastEditTime: 2020-02-17 18:58:45
  * @Description: 
  */
 using System.Text;
@@ -57,7 +57,8 @@ namespace Ng.Net.Web
             services.AddCors(options =>
             {
                 options.AddPolicy("angular",
-                builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().WithExposedHeaders());
+                builder => builder.WithOrigins("http://localhost:420")
+                .AllowAnyHeader().AllowAnyMethod().WithExposedHeaders());
             });
 
             services.AddControllersWithViews();
