@@ -2,14 +2,14 @@
  * @Author: CollapseNav
  * @Date: 2019-12-27 18:31:28
  * @LastEditors: CollapseNav
- * @LastEditTime: 2020-02-17 18:58:45
+ * @LastEditTime: 2020-03-03 18:25:38
  * @Description: 
  */
+using System;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -57,12 +57,11 @@ namespace Ng.Net.Web
             services.AddCors(options =>
             {
                 options.AddPolicy("angular",
-                builder => builder.WithOrigins("http://localhost:420")
-                .AllowAnyHeader().AllowAnyMethod().WithExposedHeaders());
+                builder => builder.WithOrigins("http://localhost:4200")
+                .AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod().WithExposedHeaders());
             });
 
             services.AddControllersWithViews();
-            // In production, the Angular files will be served from this directory
 
             services.AddDbContext<NgTestContext>(options =>
             {
@@ -72,10 +71,6 @@ namespace Ng.Net.Web
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserApplication, UserApplication>();
 
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -95,16 +90,12 @@ namespace Ng.Net.Web
             app.UseAuthentication();
 
             app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
 
             app.UseRouting();
 
             app.Use((request, next) =>
             {
-                // Console.WriteLine(request.Request.Headers["Origin"]);
+                Console.WriteLine(request.Request.Headers["Origin"]);
                 // foreach (var item in request.Request.Headers.Keys)
                 //     Console.WriteLine(item + "    " + request.Request.Headers["Origin"]);
                 return next();
@@ -115,25 +106,12 @@ namespace Ng.Net.Web
 
             app.UseAuthorization();
 
-            // app.UseHttpsRedirection();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapControllers().RequireCors("angular");
-            });
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    // spa.UseAngularCliServer(npmScript: "start");
-                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-                }
             });
         }
     }
